@@ -1,32 +1,27 @@
-package com.example.currency_exchangeservice.model;
+package com.example.currencyconversionservice.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.math.BigDecimal;
-@Entity
-@Table(name = "exchange_value")
-public class ExchangeValue {
 
-    @Id
+public class CurrencyConversionBean {
     private Long id;
-    @Column(name = "currency_from")
     private String from;
-    @Column(name = "currency_to")
     private String to;
-
     private BigDecimal conversionMultiple;
+    private BigDecimal quantity;
+    private BigDecimal calculatedAmount;
     private int port;
 
-    public ExchangeValue() {
-    }
-
-    public ExchangeValue(Long id, String from, String to, BigDecimal conversionMultiple) {
+    public CurrencyConversionBean(Long id, String from, String to, BigDecimal conversionMultiple, BigDecimal quantity, BigDecimal calculatedAmount, int port) {
         this.id = id;
         this.from = from;
         this.to = to;
         this.conversionMultiple = conversionMultiple;
+        this.quantity = quantity;
+        this.calculatedAmount = calculatedAmount;
+        this.port = port;
+    }
+
+    public CurrencyConversionBean() {
     }
 
     public Long getId() {
@@ -61,6 +56,22 @@ public class ExchangeValue {
         this.conversionMultiple = conversionMultiple;
     }
 
+    public BigDecimal getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(BigDecimal quantity) {
+        this.quantity = quantity;
+    }
+
+    public BigDecimal getCalculatedAmount() {
+        return calculatedAmount;
+    }
+
+    public void setCalculatedAmount(BigDecimal calculatedAmount) {
+        this.calculatedAmount = calculatedAmount;
+    }
+
     public int getPort() {
         return port;
     }
@@ -71,11 +82,13 @@ public class ExchangeValue {
 
     @Override
     public String toString() {
-        return "ExchangeValue{" +
+        return "CurrencyConversionBean{" +
                 "id=" + id +
                 ", from='" + from + '\'' +
                 ", to='" + to + '\'' +
                 ", conversionMultiple=" + conversionMultiple +
+                ", quantity=" + quantity +
+                ", calculatedAmount=" + calculatedAmount +
                 ", port=" + port +
                 '}';
     }
