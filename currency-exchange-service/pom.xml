@@ -2,19 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+<!--	<parent>-->
+<!--		<artifactId>spring_cloud_learning</artifactId>-->
+<!--		<groupId>org.example</groupId>-->
+<!--		<version>1.0-SNAPSHOT</version>-->
+<!--	</parent>-->
 	<parent>
-		<artifactId>spring_cloud_learning</artifactId>
-		<groupId>org.example</groupId>
-		<version>1.0-SNAPSHOT</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.1.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>currency_exchange-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>currency_exchange-service</name>
 	<description>Demo project for Spring Boot</description>
+<!--	<properties>-->
+<!--		<java.version>1.8</java.version>-->
+<!--		<spring-cloud.version>2020.0.2</spring-cloud.version>-->
+<!--	</properties>-->
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>2020.0.2</spring-cloud.version>
+		<spring-cloud.version>Hoxton.SR5</spring-cloud.version>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -52,6 +65,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
+			<version>1.4.7.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 			<exclusions>
 				<exclusion>
@@ -60,6 +78,12 @@
 				</exclusion>
 			</exclusions>
 			<version>1.4.7.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.zipkin.brave</groupId>
+			<artifactId>brave</artifactId>
+			<version>5.12.3</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
