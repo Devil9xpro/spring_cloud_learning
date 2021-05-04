@@ -2,6 +2,7 @@ package com.example.currency_exchangeservice.controller;
 
 import com.example.currency_exchangeservice.model.ExchangeValue;
 import com.example.currency_exchangeservice.repository.ExchangeValueRepository;
+import org.apache.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
